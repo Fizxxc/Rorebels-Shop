@@ -58,9 +58,10 @@ function processPayment(event) {
 
     if (name && email && address && paymentMethod) {
         const confirmationMessage = `
-            Terima kasih, ${name}. Pembayaran sebesar Rp. ${total} telah diterima menggunakan ${paymentMethod}.
+            Terima kasih, ${name}. Pembayaran sebesar Rp. ${total} sedang di proses menggunakan ${paymentMethod}.
             Pesanan Anda akan dikirim ke alamat berikut: ${address}.
             Detail lebih lanjut akan dikirim ke ${email}.
+            *note : silahkan konfirmasi pembayaran ke wa kami!!.
         `;
 
         showConfirmation(confirmationMessage);
