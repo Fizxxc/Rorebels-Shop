@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rorebels Net</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Rorebels Shop</div>
+        <div class="cart">
+            <img src="cart.png" alt="Keranjang" title="Lihat Keranjang" onclick="toggleCart()">
+            <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#profile">Home</a>
+        <a href="#catalogue">catalog</a>
+        <a href="#about">About Rorebels</a>
+        <a href="#">Contact</a>
+    </nav>
+    <!--Awal-->
+    <section id="profile">
+        <div class="section__pic-container">
+          <img src="./Rorebels.png" alt="X.IT profile picture" />
+        </div>
+        <div class="section__text">
+          <p class="section__text__p2">HIII,WELCOME TO ROREBELS SHOP🫶🏻</p>
+          <h1 class="title">Rorebels Shop</h1>
+          <p class="section__text__p1">Rorebels is a shop developed by Metland School children, and the owner of this shop is Fizzx🤑🤑🤑.</p>
+          <div class="btn-container">
+            <button
+              class="btn btn-color-2"
+              onclick="location.href='https://www.instagram.com/rorebels?igsh=bnl2endqMm9lNml3'"
+              >
+              Instagram
+              
+            </button>
+          </div>
+      </section>
+      
+      <div class="custom-divider"></div>
+
+    <!--end-->
+    <section class="catalogue">
+        <!-- Produk 1 -->
+        <div class="product">
+            <img src="fruit.jpeg" alt="Produk 1">
+            <h3>Produk 1</h3>
+            <p>Rp. 100.000</p>
+            <button onclick="addToCart(1, 'Produk 1', 100000)">Tambahkan ke Keranjang</button>
+        </div>
+
+        <!-- Produk 2 -->
+        <div class="product">
+            <img src="produk2.jpg" alt="Produk 2">
+            <h3>Produk 2</h3>
+            <p>Rp. 150.000</p>
+            <button onclick="addToCart(2, 'Produk 2', 150000)">Tambahkan ke Keranjang</button>
+        </div>
+
+        <!-- Produk 3 -->
+        <div class="product">
+            <img src="produk3.jpg" alt="Produk 3">
+            <h3>Produk 3</h3>
+            <p>Rp. 200.000</p>
+            <button onclick="addToCart(3, 'Produk 3', 200000)">Tambahkan ke Keranjang</button>
+        </div>
+
+        <!-- Produk 3 -->
+        <div class="product">
+            <img src="produk3.jpg" alt="Produk 3">
+            <h3>Produk 3</h3>
+            <p>Rp. 200.000</p>
+            <button onclick="addToCart(3, 'Produk 3', 200000)">Tambahkan ke Keranjang</button>
+        </div>
+    </section>
+
+    <div class="custom-divider"></div>
+
+    <!--About-->
+    <section id="about">
+        <h1 class="title">About Rorebels</h1>
+        <p class="section__text__p1">Rorebels About</p>
+        <div class="section-container">
+          <div class="section__pic-container">
+            <img
+              src="./Rorebels.png"
+              alt="Profile picture"
+              class="about-pic"
+            />
+          </div>
+          <div class="about-details-container">
+            <div class="about-containers">
+              <div class="details-container">
+                <img
+                  src="./experience.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <h3>Owner</h3>
+                <p>FizzxXD<br/>━━━━━━━</p>
+              </div>
+              <div class="details-container">
+                <img
+                  src="./sun.png"
+                  alt="Education icon"
+                  class="icon"
+                />
+                <h3>Since</h3>
+                <p>2023<br />━━━━━━━</p>
+              </div>
+            </div>
+            <div class="text-container">
+              <p>
+                Rorebels was founded in 2023, and here I am as the owner, want to develop further using my own website and this website will be updated again as soon as possible, sorry for the inconvenience, happy shopping🤑🤑🤑.
+              </p>
+            </div>
+          </div>
+        </div>
+        <img
+          src="./arrow.png"
+          alt="Arrow icon"
+          class="icon arrow"
+          onclick="location.href='#'"
+        />
+      </section>
+    <!--end-->
+    <!-- Cart Section -->
+    <section id="cart" class="hidden">
+        <h2>Keranjang Belanja</h2>
+        <ul id="cart-items"></ul>
+        <div id="total">Total: Rp. 0</div>
+        <button class="checkout" onclick="showPaymentForm()">Checkout Sekarang</button>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payment" class="hidden">
+        <h2>Pembayaran</h2>
+        <form id="payment-form" onsubmit="processPayment(event)">
+            <label for="name">Nama Lengkap:</label>
+            <input type="text" id="name" name="name" required><br><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+    
+            <label for="address">Alamat Pengiriman:</label>
+            <textarea id="address" name="address" required></textarea><br><br>
+    
+            <label for="payment-method">Metode Pembayaran:</label>
+            <select id="payment-method" name="payment-method" required>
+                <option value="gopay">GoPay</option>
+                <option value="ovo">OVO</option>
+                <option value="dana">DANA</option>
+                <option value="linkaja">LinkAja</option>
+                <option value="transfer-bank">Transfer Bank</option>
+                <option value="credit-card">Kartu Kredit</option>
+            </select><br><br>
+    
+            <button type="submit" class="pay-button">Bayar Sekarang</button>
+        </form>
+    </section>
+    
+    <!-- Confirmation Section -->
+    <section id="confirmation" class="hidden">
+        <h2>Konfirmasi Pembayaran</h2>
+        <p id="confirmation-message"></p>
+        
+        <button onclick="sendWhatsApp()">Konfirmasi via WhatsApp</button>
+        <button onclick="resetPage()">Selesai</button>
+    </section>
+    
+    <footer>
+        &copy; 2024 Toko Online Saya - All Rights Reserved
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
